@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Router from 'next/router';
-import Layout from '../../../components/organism/layout';
+import Layout from '../../../../../components/organism/layout';
 import axios from 'axios';
 import Link from 'next/dist/client/link';
 
@@ -30,7 +30,7 @@ function SkillEdit(props) {
     await axios
       .post(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/skills/${skill.id}`, formData)
       .then(() => {
-        Router.push('/skills');
+        Router.push('/admin/master/skills');
       })
       .catch((error) => {
         setValidation(error.response.data);
@@ -61,7 +61,7 @@ function SkillEdit(props) {
                   <button className="btn btn-primary border-0 shadow-sm me-2" type="submit">
                     UPDATE
                   </button>
-                  <Link href="/skills">
+                  <Link href="/admin/master/skills">
                     <button className="btn btn-secondary border-0 shadow-sm">BACK</button>
                   </Link>
                 </form>

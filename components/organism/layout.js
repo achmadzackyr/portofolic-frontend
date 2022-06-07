@@ -1,9 +1,9 @@
-import Navbar from '../molecule/navbar';
+import AdminNavbar from '../molecule/admin-navbar';
 
 export default function Layout({ children }) {
   return (
     <>
-      <Navbar />
+      <AdminNavbar />
       <main>{children}</main>
     </>
   );

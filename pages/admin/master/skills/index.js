@@ -1,4 +1,4 @@
-import Layout from '../../components/organism/layout';
+import Layout from '../../../../components/organism/layout';
 import Link from 'next/link';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -34,7 +34,7 @@ function SkillIndex(props) {
           <div className="col-md-12">
             <div className="card border-0 shadow-sm rounded-3">
               <div className="card-body">
-                <Link href="/skills/create">
+                <Link href="/admin/master/skills/create">
                   <button className="btn btn-primary border-0 shadow-sm mb-3">ADD</button>
                 </Link>
                 <table className="table table-bordered mb-0">
@@ -49,7 +49,7 @@ function SkillIndex(props) {
                       <tr key={skill.id}>
                         <td>{skill.skill_name}</td>
                         <td className="text-center">
-                          <Link href={`/skills/edit/${skill.id}`}>
+                          <Link href={`/admin/master/skills/edit/${skill.id}`}>
                             <button className="btn btn-sm btn-primary border-0 shadow-sm mb-3 me-3">
                               EDIT
                             </button>
