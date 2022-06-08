@@ -14,6 +14,7 @@
     "bootstrap-icons": "^1.8.3",
     "next": "12.1.6",
     "qs": "^6.10.3",
+    "randomcolor": "^0.6.2",
     "react": "18.1.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "18.1.0"

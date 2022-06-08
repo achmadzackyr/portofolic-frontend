@@ -14,6 +14,9 @@ function PortofolioNavbar({ bgColor, textColor }) {
             <Nav.Link href="#portofolio" style={{ color: textColor }}>
               Portofolio
             </Nav.Link>
+            <Nav.Link href="#skill" style={{ color: textColor }}>
+              Skill
+            </Nav.Link>
             <Nav.Link href="#contact" style={{ color: textColor }}>
               Contact
             </Nav.Link>

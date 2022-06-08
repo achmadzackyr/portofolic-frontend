@@ -7,6 +7,9 @@ import styles from '../styles/username.module.css';
 import PortofolioNavbar from '../components/molecule/portofolio-navbar';
 import Jumbotron from '../components/molecule/jumbotron';
 import About from '../components/molecule/about';
+import Skill from '../components/organism/skill';
+import Contact from '../components/molecule/contact';
+import Portofolio from '../components/organism/portofolio';
 
 export async function getServerSideProps({ params }) {
   //   const req = await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/skills/${params.id}`);
@@ -50,7 +53,16 @@ function MyPortofolio(props) {
           fullName={'Achmad Zacky Rachmatullah'}
           headline={'10 Years+ Experienced Full Stack Developer'}
         />
-        <About>Namaku asep</About>
+        <About>
+          Hallo I'm Zacky, I love to code. <br />
+          I have more than 10 years of experience in web programming and 3 years in mobile
+          programming. <br />
+          Now I work in an airline in Indonesia as a Full Stack Developer. <br /> I can build
+          website, desktop application and mobile application. <br /> I am open to freelance offers.
+        </About>
+        <Portofolio />
+        <Skill />
+        <Contact />
       </main>
       <footer className="pt-5 my-5 text-muted border-top">
         Created by the Bootstrap team &middot; &copy; 2022
