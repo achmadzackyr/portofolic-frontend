@@ -5,7 +5,7 @@ function Portofolio() {
   return (
     <Container id="portofolio" className="mb-5">
       <Row>
-        <Col>
+        <Col className="text-center">
           <h1>Portofolio</h1>
         </Col>
       </Row>

@@ -3,9 +3,9 @@ import randomColor from 'randomcolor';
 
 function Skill() {
   return (
-    <Container id="skill">
+    <Container id="skill" className="mb-5">
       <Row>
-        <Col>
+        <Col className="text-center">
           <h1>Skill</h1>
         </Col>
       </Row>

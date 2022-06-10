@@ -65,7 +65,7 @@ function MyPortofolio(props) {
         <Contact />
       </main>
       <footer className="pt-5 my-5 text-muted border-top">
-        Created by the Bootstrap team &middot; &copy; 2022
+        Created by Achmad Zacky Rachmatullah &middot; &copy; 2022
       </footer>
     </>
   );

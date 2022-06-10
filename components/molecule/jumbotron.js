@@ -2,10 +2,10 @@ import { Image } from 'react-bootstrap';
 
 function Jumbotron({ bgColor, textColor, fullName, headline }) {
   return (
-    <div className="pt-5 mb-4 text-center" style={{ backgroundColor: bgColor }}>
+    <div className="pt-5 mb-4 text-center" style={{ backgroundColor: bgColor }} id="home">
       <Image
         roundedCircle
-        className="img-thumbnail"
+        className="img-thumbnail mt-5"
         src="/achmadzackyr.jpeg"
         style={{ width: '200px' }}
       />
