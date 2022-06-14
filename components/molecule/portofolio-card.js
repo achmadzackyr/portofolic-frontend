@@ -1,43 +1,26 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 
 function PortofolioCard() {
   return (
-    <div class="card shadow-sm mb-4">
-      <svg
-        class="bd-placeholder-img card-img-top"
-        width="100%"
-        height="225"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Placeholder: Thumbnail"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-      >
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#55595c" />
-        <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-          Thumbnail
-        </text>
-      </svg>
-
-      <div class="card-body">
-        <p class="card-text">
+    <Card className="shadow-sm mb-4">
+      <Card.Img variant="top" src="/project-thumbnail-default.jpg" alt="Project Thumbnail" />
+      <Card.Body>
+        <Card.Title>VaksinKesdamJaya.id - Aplikasi Pencatatan Vaksinasi</Card.Title>
+        <Card.Text>
           This is a wider card with supporting text below as a natural lead-in to additional
           content. This content is a little bit longer.
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">
-              View
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">
-              Edit
-            </button>
-          </div>
-          <small class="text-muted">9 mins</small>
+        </Card.Text>
+        <div>
+          <span className="badge rounded-pill bg-primary me-1">Laravel</span>
+          <span className="badge rounded-pill bg-primary me-1">Next Js</span>
+          <span className="badge rounded-pill bg-primary me-1">AWS</span>
+          <span className="badge rounded-pill bg-primary me-1">MySql</span>
+          <span className="badge rounded-pill bg-primary me-1">PHP</span>
+          <span className="badge rounded-pill bg-primary me-1">React Js</span>
         </div>
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
   );
 }
 

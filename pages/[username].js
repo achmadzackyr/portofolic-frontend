@@ -44,7 +44,7 @@ function MyPortofolio(props) {
   return (
     <>
       <header>
-        <PortofolioNavbar bgColor={'rgba(95, 95, 95, 0.5)'} textColor="white" />
+        <PortofolioNavbar bgColor={'#5f5f5f'} textColor="white" />
       </header>
       <main className={styles.body}>
         <Jumbotron
@@ -64,8 +64,8 @@ function MyPortofolio(props) {
         <Skill />
         <Contact />
       </main>
-      <footer className="pt-5 my-5 text-muted border-top">
-        Created by Achmad Zacky Rachmatullah &middot; &copy; 2022
+      <footer className="pb-5 text-center" style={{ backgroundColor: '#5f5f5f', color: 'white' }}>
+        Portofolic - Made By IT Worker For IT Worker &middot; &copy; 2022
       </footer>
     </>
   );
