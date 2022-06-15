@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import Router from 'next/router';
-import Layout from '../components/organism/layout';
-import axios from 'axios';
-import Link from 'next/dist/client/link';
 import styles from '../styles/username.module.css';
 import PortofolioNavbar from '../components/molecule/portofolio-navbar';
-import Jumbotron from '../components/molecule/jumbotron';
+import Jumbotron from '../components/organism/jumbotron';
 import About from '../components/molecule/about';
 import Skill from '../components/organism/skill';
 import Contact from '../components/molecule/contact';
 import Portofolio from '../components/organism/portofolio';
+import Fab from '../components/molecule/fab';
+import PaletteSidebar from '../components/organism/palette-sidebar';
 
 export async function getServerSideProps({ params }) {
   //   const req = await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/skills/${params.id}`);
@@ -23,6 +21,16 @@ export async function getServerSideProps({ params }) {
 
 function MyPortofolio(props) {
   const { username } = props;
+
+  const [navbarBg, setNavbarBg] = useState({
+    displayColorPicker: false,
+    color: '#9F2DA5'
+  });
+
+  const [navbarText, setNavbarText] = useState({
+    displayColorPicker: false,
+    color: '#ffffff'
+  });
 
   //   const updateSkill = async (e) => {
   //     e.preventDefault();
@@ -44,7 +52,7 @@ function MyPortofolio(props) {
   return (
     <>
       <header>
-        <PortofolioNavbar bgColor={'#5f5f5f'} textColor="white" />
+        <PortofolioNavbar bgColor={navbarBg.color} textColor={navbarText.color} />
       </header>
       <main className={styles.body}>
         <Jumbotron
@@ -63,6 +71,13 @@ function MyPortofolio(props) {
         <Portofolio />
         <Skill />
         <Contact />
+        <PaletteSidebar
+          navbarBg={navbarBg}
+          setNavbarBg={setNavbarBg}
+          navbarText={navbarText}
+          setNavbarText={setNavbarText}
+        />
+        <Fab />
       </main>
       <footer className="pb-5 text-center" style={{ backgroundColor: '#5f5f5f', color: 'white' }}>
         Portofolic - Made By IT Worker For IT Worker &middot; &copy; 2022
