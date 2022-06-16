@@ -4,7 +4,9 @@ function PortofolioNavbar({ bgColor, textColor }) {
   return (
     <Navbar expand="lg" style={{ backgroundColor: bgColor }} fixed="top">
       <Container>
-        <Navbar.Brand href="#home">Portofolic</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <img src="./logo-portofolic-light.png" height={40} alt="Portofolic" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
