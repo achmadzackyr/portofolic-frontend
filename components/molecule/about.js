@@ -1,23 +1,23 @@
 import { Container, Row, Col } from 'react-bootstrap';
 
-function About({ children }) {
+function About({ children, aboutBg, aboutTitle, aboutContent, portofolioBg }) {
   return (
-    <section id="about" className="pt-5">
+    <section id="about" className="pt-5" style={{ backgroundColor: aboutBg.color }}>
       <Container className="pt-3">
         <Row className="mb-3">
           <Col className="text-center">
-            <h1>About Me</h1>
+            <h1 style={{ color: aboutTitle.color }}>About Me</h1>
           </Col>
         </Row>
         <Row className="text-center fs-5">
           <Col>
-            <p>{children}</p>
+            <p style={{ color: aboutContent.color }}>{children}</p>
           </Col>
         </Row>
       </Container>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
-          fill="#c8c8ff4d"
+          fill={portofolioBg.color}
           fillOpacity="1"
           d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         ></path>

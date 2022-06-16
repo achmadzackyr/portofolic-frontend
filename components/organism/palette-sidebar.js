@@ -19,7 +19,19 @@ export default function PaletteSidebar({
   homeHeadline,
   setHomeHeadline,
   homeAvatar,
-  setHomeAvatar
+  setHomeAvatar,
+  aboutBg,
+  setAboutBg,
+  aboutTitle,
+  setAboutTitle,
+  aboutContent,
+  setAboutContent,
+  portofolioBg,
+  setPortofolioBg,
+  portofolioHeader,
+  setPortofolioHeader,
+  portofolioSkill,
+  setPortofolioSkill
 }) {
   //#region navbar
   const handleClickNavbarBg = () => {
@@ -96,6 +108,88 @@ export default function PaletteSidebar({
     setHomeAvatar({ ...homeAvatar, color: color.hex });
   };
   //#endregion home
+
+  //#region about
+  const handleClickAboutBg = () => {
+    setAboutBg({ ...aboutBg, displayColorPicker: !aboutBg.displayColorPicker });
+  };
+
+  const handleCloseAboutBg = () => {
+    setAboutBg({ ...aboutBg, displayColorPicker: false });
+  };
+
+  const handleChangeAboutBg = (color) => {
+    setAboutBg({ ...aboutBg, color: color.hex });
+  };
+
+  const handleClickAboutTitle = () => {
+    setAboutTitle({ ...aboutTitle, displayColorPicker: !aboutTitle.displayColorPicker });
+  };
+
+  const handleCloseAboutTitle = () => {
+    setAboutTitle({ ...aboutTitle, displayColorPicker: false });
+  };
+
+  const handleChangeAboutTitle = (color) => {
+    setAboutTitle({ ...aboutTitle, color: color.hex });
+  };
+
+  const handleClickAboutContent = () => {
+    setAboutContent({ ...aboutContent, displayColorPicker: !aboutContent.displayColorPicker });
+  };
+
+  const handleCloseAboutContent = () => {
+    setAboutContent({ ...aboutContent, displayColorPicker: false });
+  };
+
+  const handleChangeAboutContent = (color) => {
+    setAboutContent({ ...aboutContent, color: color.hex });
+  };
+  //#endregion
+
+  //#region portofolio
+  const handleClickPortofolioBg = () => {
+    setPortofolioBg({ ...portofolioBg, displayColorPicker: !portofolioBg.displayColorPicker });
+  };
+
+  const handleClosePortofolioBg = () => {
+    setPortofolioBg({ ...portofolioBg, displayColorPicker: false });
+  };
+
+  const handleChangePortofolioBg = (color) => {
+    setPortofolioBg({ ...portofolioBg, color: color.hex });
+  };
+
+  const handleClickPortofolioHeader = () => {
+    setPortofolioHeader({
+      ...portofolioHeader,
+      displayColorPicker: !portofolioHeader.displayColorPicker
+    });
+  };
+
+  const handleClosePortofolioHeader = () => {
+    setPortofolioHeader({ ...portofolioHeader, displayColorPicker: false });
+  };
+
+  const handleChangePortofolioHeader = (color) => {
+    setPortofolioHeader({ ...portofolioHeader, color: color.hex });
+  };
+
+  const handleClickPortofolioSkill = () => {
+    setPortofolioSkill({
+      ...portofolioSkill,
+      displayColorPicker: !portofolioSkill.displayColorPicker
+    });
+  };
+
+  const handleClosePortofolioSkill = () => {
+    setPortofolioSkill({ ...portofolioSkill, displayColorPicker: false });
+  };
+
+  const handleChangePortofolioSkill = (color) => {
+    setPortofolioSkill({ ...portofolioSkill, color: color.hex });
+  };
+  //#endregion
 
   return (
     <div
@@ -249,24 +343,32 @@ export default function PaletteSidebar({
                   <div className="d-flex align-items-center">
                     <ul style={{ lineHeight: '2em' }}>
                       <li>
-                        Background Color
+                        Background
                         <ColorSelector
-                          component={navbarBg}
-                          handleClose={handleCloseNavbarBg}
-                          handleChange={handleChangeNavbarBg}
-                          handleClick={handleClickNavbarBg}
+                          component={aboutBg}
+                          handleClose={handleCloseAboutBg}
+                          handleChange={handleChangeAboutBg}
+                          handleClick={handleClickAboutBg}
                         />
                       </li>
                       <li>
-                        Text Color
+                        Header
                         <ColorSelector
-                          component={navbarText}
-                          handleClose={handleCloseNavbarText}
-                          handleChange={handleChangeNavbarText}
-                          handleClick={handleClickNavbarText}
+                          component={aboutTitle}
+                          handleClose={handleCloseAboutTitle}
+                          handleChange={handleChangeAboutTitle}
+                          handleClick={handleClickAboutTitle}
                         />
                       </li>
-                      <li>Background Color</li>
+                      <li>
+                        Content
+                        <ColorSelector
+                          component={aboutContent}
+                          handleClose={handleCloseAboutContent}
+                          handleChange={handleChangeAboutContent}
+                          handleClick={handleClickAboutContent}
+                        />
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -288,24 +390,32 @@ export default function PaletteSidebar({
                   <div className="d-flex align-items-center">
                     <ul style={{ lineHeight: '2em' }}>
                       <li>
-                        Background Color
+                        Background
                         <ColorSelector
-                          component={navbarBg}
-                          handleClose={handleCloseNavbarBg}
-                          handleChange={handleChangeNavbarBg}
-                          handleClick={handleClickNavbarBg}
+                          component={portofolioBg}
+                          handleClose={handleClosePortofolioBg}
+                          handleChange={handleChangePortofolioBg}
+                          handleClick={handleClickPortofolioBg}
                         />
                       </li>
                       <li>
-                        Text Color
+                        Header
                         <ColorSelector
-                          component={navbarText}
-                          handleClose={handleCloseNavbarText}
-                          handleChange={handleChangeNavbarText}
-                          handleClick={handleClickNavbarText}
+                          component={portofolioHeader}
+                          handleClose={handleClosePortofolioHeader}
+                          handleChange={handleChangePortofolioHeader}
+                          handleClick={handleClickPortofolioHeader}
                         />
                       </li>
-                      <li>Background Color</li>
+                      <li>
+                        Skill
+                        <ColorSelector
+                          component={portofolioSkill}
+                          handleClose={handleClosePortofolioSkill}
+                          handleChange={handleChangePortofolioSkill}
+                          handleClick={handleClickPortofolioSkill}
+                        />
+                      </li>
                     </ul>
                   </div>
                 </li>

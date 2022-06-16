@@ -63,6 +63,40 @@ function MyPortofolio(props) {
   });
   //#endregion
 
+  //#region about
+  const [aboutBg, setAboutBg] = useState({
+    displayColorPicker: false,
+    color: '#FFFFFF'
+  });
+
+  const [aboutTitle, setAboutTitle] = useState({
+    displayColorPicker: false,
+    color: '#333333'
+  });
+
+  const [aboutContent, setAboutContent] = useState({
+    displayColorPicker: false,
+    color: '#555555'
+  });
+  //#endregion
+
+  //#region portofolio
+  const [portofolioBg, setPortofolioBg] = useState({
+    displayColorPicker: false,
+    color: '#00CCBF'
+  });
+
+  const [portofolioHeader, setPortofolioHeader] = useState({
+    displayColorPicker: false,
+    color: '#333333'
+  });
+
+  const [portofolioSkill, setPortofolioSkill] = useState({
+    displayColorPicker: false,
+    color: '#3F7C85'
+  });
+  //#endregion
+
   //   const updateSkill = async (e) => {
   //     e.preventDefault();
 
@@ -91,17 +125,27 @@ function MyPortofolio(props) {
           homeName={homeName}
           homeHeadline={homeHeadline}
           homeAvatar={homeAvatar}
+          aboutBg={aboutBg}
           fullName={'Achmad Zacky Rachmatullah'}
           headline={'10 Years+ Experienced Full Stack Developer'}
         />
-        <About>
+        <About
+          aboutBg={aboutBg}
+          aboutTitle={aboutTitle}
+          aboutContent={aboutContent}
+          portofolioBg={portofolioBg}
+        >
           Hallo I'm Zacky, I love to code. <br />
           I have more than 10 years of experience in web programming and 3 years in mobile
           programming. <br />
           Now I work in an airline in Indonesia as a Full Stack Developer. <br /> I can build
           website, desktop application and mobile application. <br /> I am open to freelance offers.
         </About>
-        <Portofolio />
+        <Portofolio
+          portofolioBg={portofolioBg}
+          portofolioHeader={portofolioHeader}
+          portofolioSkill={portofolioSkill}
+        />
         <Skill />
         <Contact />
         <PaletteSidebar
@@ -120,6 +164,18 @@ function MyPortofolio(props) {
           setHomeHeadline={setHomeHeadline}
           homeAvatar={homeAvatar}
           setHomeAvatar={setHomeAvatar}
+          aboutBg={aboutBg}
+          setAboutBg={setAboutBg}
+          aboutTitle={aboutTitle}
+          setAboutTitle={setAboutTitle}
+          aboutContent={aboutContent}
+          setAboutContent={setAboutContent}
+          portofolioBg={portofolioBg}
+          setPortofolioBg={setPortofolioBg}
+          portofolioHeader={portofolioHeader}
+          setPortofolioHeader={setPortofolioHeader}
+          portofolioSkill={portofolioSkill}
+          setPortofolioSkill={setPortofolioSkill}
         />
         <Fab />
       </main>

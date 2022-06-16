@@ -1,30 +1,27 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import PortofolioCard from '../molecule/portofolio-card';
 
-function Portofolio() {
+function Portofolio({ portofolioBg, portofolioHeader, portofolioSkill }) {
   return (
-    <section id="portofolio" className="pt-5" style={{ backgroundColor: '#c8c8ff4d' }}>
+    <section id="portofolio" className="pt-5" style={{ backgroundColor: portofolioBg.color }}>
       <Container className="pt-3">
         <Row className="mb-3">
           <Col className="text-center">
-            <h1>Portofolio</h1>
+            <h1 style={{ color: portofolioHeader.color }}>Portofolio</h1>
           </Col>
         </Row>
         <Row className="justify-content-center">
-          <Col md={4}>
-            <PortofolioCard />
+          <Col md={4} lg={3}>
+            <PortofolioCard portofolioSkill={portofolioSkill} />
           </Col>
-          <Col md={4}>
-            <PortofolioCard />
+          <Col md={4} lg={3}>
+            <PortofolioCard portofolioSkill={portofolioSkill} />
           </Col>
-          <Col md={4}>
-            <PortofolioCard />
+          <Col md={4} lg={3}>
+            <PortofolioCard portofolioSkill={portofolioSkill} />
           </Col>
-          <Col md={4}>
-            <PortofolioCard />
-          </Col>
-          <Col md={4}>
-            <PortofolioCard />
+          <Col md={4} lg={3}>
+            <PortofolioCard portofolioSkill={portofolioSkill} />
           </Col>
         </Row>
       </Container>
