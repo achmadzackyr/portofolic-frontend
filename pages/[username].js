@@ -25,7 +25,7 @@ function MyPortofolio(props) {
   //#region navbar
   const [navbarBg, setNavbarBg] = useState({
     displayColorPicker: false,
-    color: '#9F2DA5'
+    color: '#3F7C85'
   });
 
   const [navbarText, setNavbarText] = useState({
@@ -44,10 +44,20 @@ function MyPortofolio(props) {
   //#region home
   const [homeBg, setHomeBg] = useState({
     displayColorPicker: false,
-    color: '#9F2DA5'
+    color: '#00CCBF'
   });
 
-  const [homeText, setHomeText] = useState({
+  const [homeName, setHomeName] = useState({
+    displayColorPicker: false,
+    color: '#333333'
+  });
+
+  const [homeHeadline, setHomeHeadline] = useState({
+    displayColorPicker: false,
+    color: '#555555'
+  });
+
+  const [homeAvatar, setHomeAvatar] = useState({
     displayColorPicker: false,
     color: '#ffffff'
   });
@@ -77,8 +87,10 @@ function MyPortofolio(props) {
       </header>
       <main className={styles.body}>
         <Jumbotron
-          bgColor={'rgba(200, 200, 255, 0.3)'}
-          textColor="black"
+          homeBg={homeBg}
+          homeName={homeName}
+          homeHeadline={homeHeadline}
+          homeAvatar={homeAvatar}
           fullName={'Achmad Zacky Rachmatullah'}
           headline={'10 Years+ Experienced Full Stack Developer'}
         />
@@ -100,6 +112,14 @@ function MyPortofolio(props) {
           logoTheme={logoTheme}
           setLogoTheme={setLogoTheme}
           logoThemes={logoThemes}
+          homeBg={homeBg}
+          setHomeBg={setHomeBg}
+          homeName={homeName}
+          setHomeName={setHomeName}
+          homeHeadline={homeHeadline}
+          setHomeHeadline={setHomeHeadline}
+          homeAvatar={homeAvatar}
+          setHomeAvatar={setHomeAvatar}
         />
         <Fab />
       </main>

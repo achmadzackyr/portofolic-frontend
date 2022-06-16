@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ColorSelector from '../molecule/color-selector';
+import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
@@ -10,8 +11,17 @@ export default function PaletteSidebar({
   setNavbarText,
   logoTheme,
   setLogoTheme,
-  logoThemes
+  logoThemes,
+  homeBg,
+  setHomeBg,
+  homeName,
+  setHomeName,
+  homeHeadline,
+  setHomeHeadline,
+  homeAvatar,
+  setHomeAvatar
 }) {
+  //#region navbar
   const handleClickNavbarBg = () => {
     setNavbarBg({ ...navbarBg, displayColorPicker: !navbarBg.displayColorPicker });
   };
@@ -35,6 +45,57 @@ export default function PaletteSidebar({
   const handleChangeNavbarText = (color) => {
     setNavbarText({ ...navbarText, color: color.hex });
   };
+  //#endregion navbar
+
+  //#region home
+  const handleClickHomeBg = () => {
+    setHomeBg({ ...homeBg, displayColorPicker: !homeBg.displayColorPicker });
+  };
+
+  const handleCloseHomeBg = () => {
+    setHomeBg({ ...homeBg, displayColorPicker: false });
+  };
+
+  const handleChangeHomeBg = (color) => {
+    setHomeBg({ ...homeBg, color: color.hex });
+  };
+
+  const handleClickHomeName = () => {
+    setHomeName({ ...homeName, displayColorPicker: !homeName.displayColorPicker });
+  };
+
+  const handleCloseHomeName = () => {
+    setHomeName({ ...homeName, displayColorPicker: false });
+  };
+
+  const handleChangeHomeName = (color) => {
+    setHomeName({ ...homeName, color: color.hex });
+  };
+
+  const handleClickHomeHeadline = () => {
+    setHomeHeadline({ ...homeHeadline, displayColorPicker: !homeHeadline.displayColorPicker });
+  };
+
+  const handleCloseHomeHeadline = () => {
+    setHomeHeadline({ ...homeHeadline, displayColorPicker: false });
+  };
+
+  const handleChangeHomeHeadline = (color) => {
+    setHomeHeadline({ ...homeHeadline, color: color.hex });
+  };
+
+  const handleClickHomeAvatar = () => {
+    setHomeAvatar({ ...homeAvatar, displayColorPicker: !homeAvatar.displayColorPicker });
+  };
+
+  const handleCloseHomeAvatar = () => {
+    setHomeAvatar({ ...homeAvatar, displayColorPicker: false });
+  };
+
+  const handleChangeHomeAvatar = (color) => {
+    setHomeAvatar({ ...homeAvatar, color: color.hex });
+  };
+  //#endregion home
 
   return (
     <div
@@ -74,7 +135,7 @@ export default function PaletteSidebar({
                   <div className="d-flex align-items-center">
                     <ul style={{ lineHeight: '2em' }}>
                       <li>
-                        Background Color
+                        Background
                         <ColorSelector
                           component={navbarBg}
                           handleClose={handleCloseNavbarBg}
@@ -83,7 +144,7 @@ export default function PaletteSidebar({
                         />
                       </li>
                       <li>
-                        Text Color
+                        Menu
                         <ColorSelector
                           component={navbarText}
                           handleClose={handleCloseNavbarText}
@@ -132,24 +193,41 @@ export default function PaletteSidebar({
                   <div className="d-flex align-items-center">
                     <ul style={{ lineHeight: '2em' }}>
                       <li>
-                        Background Color
+                        Background
                         <ColorSelector
-                          component={navbarBg}
-                          handleClose={handleCloseNavbarBg}
-                          handleChange={handleChangeNavbarBg}
-                          handleClick={handleClickNavbarBg}
+                          component={homeBg}
+                          handleClose={handleCloseHomeBg}
+                          handleChange={handleChangeHomeBg}
+                          handleClick={handleClickHomeBg}
                         />
                       </li>
                       <li>
-                        Text Color
+                        Name
                         <ColorSelector
-                          component={navbarText}
-                          handleClose={handleCloseNavbarText}
-                          handleChange={handleChangeNavbarText}
-                          handleClick={handleClickNavbarText}
+                          component={homeName}
+                          handleClose={handleCloseHomeName}
+                          handleChange={handleChangeHomeName}
+                          handleClick={handleClickHomeName}
                         />
                       </li>
-                      <li>Background Color</li>
+                      <li>
+                        Headline
+                        <ColorSelector
+                          component={homeHeadline}
+                          handleClose={handleCloseHomeHeadline}
+                          handleChange={handleChangeHomeHeadline}
+                          handleClick={handleClickHomeHeadline}
+                        />
+                      </li>
+                      <li>
+                        Avatar Border
+                        <ColorSelector
+                          component={homeAvatar}
+                          handleClose={handleCloseHomeAvatar}
+                          handleChange={handleChangeHomeAvatar}
+                          handleClick={handleClickHomeAvatar}
+                        />
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -314,38 +392,10 @@ export default function PaletteSidebar({
           </li>
           <li className="border-top my-3"></li>
           <li className="mb-1">
-            <button
-              className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-              data-bs-toggle="collapse"
-              data-bs-target="#account-collapse"
-              aria-expanded="false"
-            >
-              Account
-            </button>
-            <div className="collapse" id="account-collapse">
-              <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li>
-                  <a href="#" className="link-dark d-inline-flex text-decoration-none rounded">
-                    New...
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="link-dark d-inline-flex text-decoration-none rounded">
-                    Profile
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="link-dark d-inline-flex text-decoration-none rounded">
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="link-dark d-inline-flex text-decoration-none rounded">
-                    Sign out
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <Button variant="primary" className="me-1">
+              Save
+            </Button>
+            <Button variant="secondary">Reset</Button>
           </li>
         </ul>
       </div>

@@ -1,13 +1,13 @@
 import Avatar from '../molecule/avatar';
 
-function Jumbotron({ bgColor, textColor, fullName, headline }) {
+function Jumbotron({ homeBg, homeName, homeHeadline, fullName, headline, homeAvatar }) {
   return (
-    <div className="pt-5 mb-4 text-center" style={{ backgroundColor: bgColor }} id="home">
-      <Avatar />
-      <h1 className="display-6 fw-semibold" style={{ color: textColor }}>
+    <div className="pt-5 mb-4 text-center" style={{ backgroundColor: homeBg.color }} id="home">
+      <Avatar homeAvatar={homeAvatar} />
+      <h1 className="display-6 fw-semibold" style={{ color: homeName.color }}>
         {fullName}
       </h1>
-      <p className="fs-5" style={{ color: textColor }}>
+      <p className="fs-5" style={{ color: homeHeadline.color }}>
         {headline}
       </p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
