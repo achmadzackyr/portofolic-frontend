@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import ColorSelector from '../molecule/color-selector';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
-export default function PaletteSidebar({ navbarBg, setNavbarBg, navbarText, setNavbarText }) {
+export default function PaletteSidebar({
+  navbarBg,
+  setNavbarBg,
+  navbarText,
+  setNavbarText,
+  logoTheme,
+  setLogoTheme,
+  logoThemes
+}) {
   const handleClickNavbarBg = () => {
     setNavbarBg({ ...navbarBg, displayColorPicker: !navbarBg.displayColorPicker });
   };
@@ -81,7 +91,26 @@ export default function PaletteSidebar({ navbarBg, setNavbarBg, navbarText, setN
                           handleClick={handleClickNavbarText}
                         />
                       </li>
-                      <li>Background Color</li>
+                      <li>
+                        Logo
+                        <ButtonGroup className="ms-2">
+                          {logoThemes.map((radio, idx) => (
+                            <ToggleButton
+                              key={idx}
+                              id={`radio-${idx}`}
+                              type="radio"
+                              variant={idx == 2 ? 'outline-light' : 'outline-dark'}
+                              name="radio"
+                              value={radio.value}
+                              checked={logoTheme === radio.value}
+                              onChange={(e) => setLogoTheme(e.currentTarget.value)}
+                              size="sm"
+                            >
+                              {radio.name}
+                            </ToggleButton>
+                          ))}
+                        </ButtonGroup>
+                      </li>
                     </ul>
                   </div>
                 </li>

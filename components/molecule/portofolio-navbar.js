@@ -1,11 +1,15 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
-function PortofolioNavbar({ bgColor, textColor }) {
+function PortofolioNavbar({ bgColor, textColor, logo }) {
   return (
     <Navbar expand="lg" style={{ backgroundColor: bgColor }} fixed="top">
       <Container>
         <Navbar.Brand href="#home">
-          <img src="./logo-portofolic-light.png" height={40} alt="Portofolic" />
+          <img
+            src={logo == '1' ? './logo-portofolic-light.png' : './logo-portofolic-dark.png'}
+            height={40}
+            alt="Portofolic"
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

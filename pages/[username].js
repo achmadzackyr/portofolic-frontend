@@ -22,6 +22,7 @@ export async function getServerSideProps({ params }) {
 function MyPortofolio(props) {
   const { username } = props;
 
+  //#region navbar
   const [navbarBg, setNavbarBg] = useState({
     displayColorPicker: false,
     color: '#9F2DA5'
@@ -31,6 +32,26 @@ function MyPortofolio(props) {
     displayColorPicker: false,
     color: '#ffffff'
   });
+
+  const [logoTheme, setLogoTheme] = useState('1');
+
+  const logoThemes = [
+    { name: 'Light', value: '1' },
+    { name: 'Dark', value: '2' }
+  ];
+  //#endregion
+
+  //#region home
+  const [homeBg, setHomeBg] = useState({
+    displayColorPicker: false,
+    color: '#9F2DA5'
+  });
+
+  const [homeText, setHomeText] = useState({
+    displayColorPicker: false,
+    color: '#ffffff'
+  });
+  //#endregion
 
   //   const updateSkill = async (e) => {
   //     e.preventDefault();
@@ -52,7 +73,7 @@ function MyPortofolio(props) {
   return (
     <>
       <header>
-        <PortofolioNavbar bgColor={navbarBg.color} textColor={navbarText.color} />
+        <PortofolioNavbar bgColor={navbarBg.color} textColor={navbarText.color} logo={logoTheme} />
       </header>
       <main className={styles.body}>
         <Jumbotron
@@ -76,6 +97,9 @@ function MyPortofolio(props) {
           setNavbarBg={setNavbarBg}
           navbarText={navbarText}
           setNavbarText={setNavbarText}
+          logoTheme={logoTheme}
+          setLogoTheme={setLogoTheme}
+          logoThemes={logoThemes}
         />
         <Fab />
       </main>
