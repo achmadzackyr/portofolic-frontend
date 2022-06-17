@@ -28,34 +28,24 @@ export default function PaletteSidebar({
   setAboutContent,
   portofolioBg,
   setPortofolioBg,
-  portofolioHeader,
-  setPortofolioHeader,
+  portofolioTitle,
+  setPortofolioTitle,
   portofolioSkill,
-  setPortofolioSkill
+  setPortofolioSkill,
+  skillBg,
+  setSkillBg,
+  skillTitle,
+  setSkillTitle,
+  skillBar,
+  setSkillBar
 }) {
   //#region navbar
   const handleClickNavbarBg = () => {
     setNavbarBg({ ...navbarBg, displayColorPicker: !navbarBg.displayColorPicker });
   };
 
-  const handleCloseNavbarBg = () => {
-    setNavbarBg({ ...navbarBg, displayColorPicker: false });
-  };
-
-  const handleChangeNavbarBg = (color) => {
-    setNavbarBg({ ...navbarBg, color: color.hex });
-  };
-
   const handleClickNavbarText = () => {
     setNavbarText({ ...navbarText, displayColorPicker: !navbarText.displayColorPicker });
-  };
-
-  const handleCloseNavbarText = () => {
-    setNavbarText({ ...navbarText, displayColorPicker: false });
-  };
-
-  const handleChangeNavbarText = (color) => {
-    setNavbarText({ ...navbarText, color: color.hex });
   };
   //#endregion navbar
 
@@ -64,48 +54,16 @@ export default function PaletteSidebar({
     setHomeBg({ ...homeBg, displayColorPicker: !homeBg.displayColorPicker });
   };
 
-  const handleCloseHomeBg = () => {
-    setHomeBg({ ...homeBg, displayColorPicker: false });
-  };
-
-  const handleChangeHomeBg = (color) => {
-    setHomeBg({ ...homeBg, color: color.hex });
-  };
-
   const handleClickHomeName = () => {
     setHomeName({ ...homeName, displayColorPicker: !homeName.displayColorPicker });
-  };
-
-  const handleCloseHomeName = () => {
-    setHomeName({ ...homeName, displayColorPicker: false });
-  };
-
-  const handleChangeHomeName = (color) => {
-    setHomeName({ ...homeName, color: color.hex });
   };
 
   const handleClickHomeHeadline = () => {
     setHomeHeadline({ ...homeHeadline, displayColorPicker: !homeHeadline.displayColorPicker });
   };
 
-  const handleCloseHomeHeadline = () => {
-    setHomeHeadline({ ...homeHeadline, displayColorPicker: false });
-  };
-
-  const handleChangeHomeHeadline = (color) => {
-    setHomeHeadline({ ...homeHeadline, color: color.hex });
-  };
-
   const handleClickHomeAvatar = () => {
     setHomeAvatar({ ...homeAvatar, displayColorPicker: !homeAvatar.displayColorPicker });
-  };
-
-  const handleCloseHomeAvatar = () => {
-    setHomeAvatar({ ...homeAvatar, displayColorPicker: false });
-  };
-
-  const handleChangeHomeAvatar = (color) => {
-    setHomeAvatar({ ...homeAvatar, color: color.hex });
   };
   //#endregion home
 
@@ -114,36 +72,12 @@ export default function PaletteSidebar({
     setAboutBg({ ...aboutBg, displayColorPicker: !aboutBg.displayColorPicker });
   };
 
-  const handleCloseAboutBg = () => {
-    setAboutBg({ ...aboutBg, displayColorPicker: false });
-  };
-
-  const handleChangeAboutBg = (color) => {
-    setAboutBg({ ...aboutBg, color: color.hex });
-  };
-
   const handleClickAboutTitle = () => {
     setAboutTitle({ ...aboutTitle, displayColorPicker: !aboutTitle.displayColorPicker });
   };
 
-  const handleCloseAboutTitle = () => {
-    setAboutTitle({ ...aboutTitle, displayColorPicker: false });
-  };
-
-  const handleChangeAboutTitle = (color) => {
-    setAboutTitle({ ...aboutTitle, color: color.hex });
-  };
-
   const handleClickAboutContent = () => {
     setAboutContent({ ...aboutContent, displayColorPicker: !aboutContent.displayColorPicker });
-  };
-
-  const handleCloseAboutContent = () => {
-    setAboutContent({ ...aboutContent, displayColorPicker: false });
-  };
-
-  const handleChangeAboutContent = (color) => {
-    setAboutContent({ ...aboutContent, color: color.hex });
   };
   //#endregion
 
@@ -152,27 +86,11 @@ export default function PaletteSidebar({
     setPortofolioBg({ ...portofolioBg, displayColorPicker: !portofolioBg.displayColorPicker });
   };
 
-  const handleClosePortofolioBg = () => {
-    setPortofolioBg({ ...portofolioBg, displayColorPicker: false });
-  };
-
-  const handleChangePortofolioBg = (color) => {
-    setPortofolioBg({ ...portofolioBg, color: color.hex });
-  };
-
-  const handleClickPortofolioHeader = () => {
-    setPortofolioHeader({
-      ...portofolioHeader,
-      displayColorPicker: !portofolioHeader.displayColorPicker
+  const handleClickPortofolioTitle = () => {
+    setPortofolioTitle({
+      ...portofolioTitle,
+      displayColorPicker: !portofolioTitle.displayColorPicker
     });
-  };
-
-  const handleClosePortofolioHeader = () => {
-    setPortofolioHeader({ ...portofolioHeader, displayColorPicker: false });
-  };
-
-  const handleChangePortofolioHeader = (color) => {
-    setPortofolioHeader({ ...portofolioHeader, color: color.hex });
   };
 
   const handleClickPortofolioSkill = () => {
@@ -181,13 +99,19 @@ export default function PaletteSidebar({
       displayColorPicker: !portofolioSkill.displayColorPicker
     });
   };
+  //#endregion
 
-  const handleClosePortofolioSkill = () => {
-    setPortofolioSkill({ ...portofolioSkill, displayColorPicker: false });
+  //#region skill
+  const handleClickSkillBg = () => {
+    setSkillBg({ ...skillBg, displayColorPicker: !skillBg.displayColorPicker });
   };
 
-  const handleChangePortofolioSkill = (color) => {
-    setPortofolioSkill({ ...portofolioSkill, color: color.hex });
+  const handleClickSkillTitle = () => {
+    setSkillTitle({ ...skillTitle, displayColorPicker: !skillTitle.displayColorPicker });
+  };
+
+  const handleClickSkillBar = () => {
+    setSkillBar({ ...skillBar, displayColorPicker: !skillBar.displayColorPicker });
   };
   //#endregion
 
@@ -230,21 +154,11 @@ export default function PaletteSidebar({
                     <ul style={{ lineHeight: '2em' }}>
                       <li>
                         Background
-                        <ColorSelector
-                          component={navbarBg}
-                          handleClose={handleCloseNavbarBg}
-                          handleChange={handleChangeNavbarBg}
-                          handleClick={handleClickNavbarBg}
-                        />
+                        <ColorSelector component={navbarBg} handleClick={handleClickNavbarBg} />
                       </li>
                       <li>
                         Menu
-                        <ColorSelector
-                          component={navbarText}
-                          handleClose={handleCloseNavbarText}
-                          handleChange={handleChangeNavbarText}
-                          handleClick={handleClickNavbarText}
-                        />
+                        <ColorSelector component={navbarText} handleClick={handleClickNavbarText} />
                       </li>
                       <li>
                         Logo
@@ -288,39 +202,22 @@ export default function PaletteSidebar({
                     <ul style={{ lineHeight: '2em' }}>
                       <li>
                         Background
-                        <ColorSelector
-                          component={homeBg}
-                          handleClose={handleCloseHomeBg}
-                          handleChange={handleChangeHomeBg}
-                          handleClick={handleClickHomeBg}
-                        />
+                        <ColorSelector component={homeBg} handleClick={handleClickHomeBg} />
                       </li>
                       <li>
                         Name
-                        <ColorSelector
-                          component={homeName}
-                          handleClose={handleCloseHomeName}
-                          handleChange={handleChangeHomeName}
-                          handleClick={handleClickHomeName}
-                        />
+                        <ColorSelector component={homeName} handleClick={handleClickHomeName} />
                       </li>
                       <li>
                         Headline
                         <ColorSelector
                           component={homeHeadline}
-                          handleClose={handleCloseHomeHeadline}
-                          handleChange={handleChangeHomeHeadline}
                           handleClick={handleClickHomeHeadline}
                         />
                       </li>
                       <li>
                         Avatar Border
-                        <ColorSelector
-                          component={homeAvatar}
-                          handleClose={handleCloseHomeAvatar}
-                          handleChange={handleChangeHomeAvatar}
-                          handleClick={handleClickHomeAvatar}
-                        />
+                        <ColorSelector component={homeAvatar} handleClick={handleClickHomeAvatar} />
                       </li>
                     </ul>
                   </div>
@@ -344,28 +241,16 @@ export default function PaletteSidebar({
                     <ul style={{ lineHeight: '2em' }}>
                       <li>
                         Background
-                        <ColorSelector
-                          component={aboutBg}
-                          handleClose={handleCloseAboutBg}
-                          handleChange={handleChangeAboutBg}
-                          handleClick={handleClickAboutBg}
-                        />
+                        <ColorSelector component={aboutBg} handleClick={handleClickAboutBg} />
                       </li>
                       <li>
                         Header
-                        <ColorSelector
-                          component={aboutTitle}
-                          handleClose={handleCloseAboutTitle}
-                          handleChange={handleChangeAboutTitle}
-                          handleClick={handleClickAboutTitle}
-                        />
+                        <ColorSelector component={aboutTitle} handleClick={handleClickAboutTitle} />
                       </li>
                       <li>
                         Content
                         <ColorSelector
                           component={aboutContent}
-                          handleClose={handleCloseAboutContent}
-                          handleChange={handleChangeAboutContent}
                           handleClick={handleClickAboutContent}
                         />
                       </li>
@@ -393,26 +278,20 @@ export default function PaletteSidebar({
                         Background
                         <ColorSelector
                           component={portofolioBg}
-                          handleClose={handleClosePortofolioBg}
-                          handleChange={handleChangePortofolioBg}
                           handleClick={handleClickPortofolioBg}
                         />
                       </li>
                       <li>
-                        Header
+                        Title
                         <ColorSelector
-                          component={portofolioHeader}
-                          handleClose={handleClosePortofolioHeader}
-                          handleChange={handleChangePortofolioHeader}
-                          handleClick={handleClickPortofolioHeader}
+                          component={portofolioTitle}
+                          handleClick={handleClickPortofolioTitle}
                         />
                       </li>
                       <li>
                         Skill
                         <ColorSelector
                           component={portofolioSkill}
-                          handleClose={handleClosePortofolioSkill}
-                          handleChange={handleChangePortofolioSkill}
                           handleClick={handleClickPortofolioSkill}
                         />
                       </li>
@@ -437,24 +316,17 @@ export default function PaletteSidebar({
                   <div className="d-flex align-items-center">
                     <ul style={{ lineHeight: '2em' }}>
                       <li>
-                        Background Color
-                        <ColorSelector
-                          component={navbarBg}
-                          handleClose={handleCloseNavbarBg}
-                          handleChange={handleChangeNavbarBg}
-                          handleClick={handleClickNavbarBg}
-                        />
+                        Background
+                        <ColorSelector component={skillBg} handleClick={handleClickSkillBg} />
                       </li>
                       <li>
-                        Text Color
-                        <ColorSelector
-                          component={navbarText}
-                          handleClose={handleCloseNavbarText}
-                          handleChange={handleChangeNavbarText}
-                          handleClick={handleClickNavbarText}
-                        />
+                        Title
+                        <ColorSelector component={skillTitle} handleClick={handleClickSkillTitle} />
                       </li>
-                      <li>Background Color</li>
+                      <li>
+                        Bar
+                        <ColorSelector component={skillBar} handleClick={handleClickSkillBar} />
+                      </li>
                     </ul>
                   </div>
                 </li>
@@ -475,24 +347,8 @@ export default function PaletteSidebar({
                 <li className="mb-1">
                   <div className="d-flex align-items-center">
                     <ul style={{ lineHeight: '2em' }}>
-                      <li>
-                        Background Color
-                        <ColorSelector
-                          component={navbarBg}
-                          handleClose={handleCloseNavbarBg}
-                          handleChange={handleChangeNavbarBg}
-                          handleClick={handleClickNavbarBg}
-                        />
-                      </li>
-                      <li>
-                        Text Color
-                        <ColorSelector
-                          component={navbarText}
-                          handleClose={handleCloseNavbarText}
-                          handleChange={handleChangeNavbarText}
-                          handleClick={handleClickNavbarText}
-                        />
-                      </li>
+                      <li>Background Color</li>
+                      <li>Text Color</li>
                       <li>Background Color</li>
                     </ul>
                   </div>

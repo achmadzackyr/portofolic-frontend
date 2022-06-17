@@ -1,116 +1,51 @@
 import { Container, Row, Col } from 'react-bootstrap';
+import SkillBar from '../molecule/skill-bar';
 
-function Skill() {
+function Skill({ skillBg, skillTitle, skillBar }) {
   return (
-    <section id="skill" className="pt-5">
+    <section id="skill" className="pt-5" style={{ backgroundColor: skillBg.color }}>
       <Container className="pt-3">
         <Row className="mb-3">
           <Col className="text-center">
-            <h1>Skill</h1>
+            <h1 style={{ color: skillTitle.color }}>Skill</h1>
           </Col>
         </Row>
         <Row>
           <Col xs={4} md={2}>
-            Wordpress Plugin
+            Laravel
           </Col>
           <Col xs={8} md={4}>
-            <div className="progress">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{ width: `${7 * 10}%` }}
-                aria-valuenow="7"
-                aria-valuemin="0"
-                aria-valuemax="10"
-              >
-                7
-              </div>
-            </div>
+            <SkillBar skillProf={9} skillBar={skillBar} />
           </Col>
           <Col xs={4} md={2}>
-            Wordpress Plugin
+            Next Js
           </Col>
           <Col xs={8} md={4}>
-            <div className="progress">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{ width: `${7 * 10}%` }}
-                aria-valuenow="7"
-                aria-valuemin="0"
-                aria-valuemax="10"
-              >
-                7
-              </div>
-            </div>
+            <SkillBar skillProf={8} skillBar={skillBar} />
           </Col>
           <Col xs={4} md={2}>
-            Wordpress Plugin
+            React Js
           </Col>
           <Col xs={8} md={4}>
-            <div className="progress">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{ width: `${7 * 10}%` }}
-                aria-valuenow="7"
-                aria-valuemin="0"
-                aria-valuemax="10"
-              >
-                7
-              </div>
-            </div>
+            <SkillBar skillProf={8} skillBar={skillBar} />
           </Col>
           <Col xs={4} md={2}>
-            Wordpress Plugin
+            ASP.Net
           </Col>
           <Col xs={8} md={4}>
-            <div className="progress">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{ width: `${7 * 10}%` }}
-                aria-valuenow="7"
-                aria-valuemin="0"
-                aria-valuemax="10"
-              >
-                7
-              </div>
-            </div>
+            <SkillBar skillProf={9} skillBar={skillBar} />
           </Col>
           <Col xs={4} md={2}>
-            Wordpress Plugin
+            Firebase
           </Col>
           <Col xs={8} md={4}>
-            <div className="progress">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{ width: `${7 * 10}%` }}
-                aria-valuenow="7"
-                aria-valuemin="0"
-                aria-valuemax="10"
-              >
-                7
-              </div>
-            </div>
+            <SkillBar skillProf={6} skillBar={skillBar} />
           </Col>
           <Col xs={4} md={2}>
-            Wordpress Plugin
+            SQL Server
           </Col>
           <Col xs={8} md={4}>
-            <div className="progress">
-              <div
-                className="progress-bar"
-                role="progressbar"
-                style={{ width: `${7 * 10}%` }}
-                aria-valuenow="7"
-                aria-valuemin="0"
-                aria-valuemax="10"
-              >
-                7
-              </div>
-            </div>
+            <SkillBar skillProf={7} skillBar={skillBar} />
           </Col>
         </Row>
       </Container>

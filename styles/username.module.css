@@ -1,3 +1,40 @@
 .body {
     min-height: 2000px;
 }
+
+.color {
+    width: 36px;
+    height: 14px;
+    border-radius: 2px;
+  }
+  
+  .swatch {
+    padding: 1px;
+    background: #fff;
+    border-radius: 1px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .popover {
+    position: fixed;
+    z-index: 2;
+    top: 75px;
+    right: 25px;
+  }
+  
+  .cover {
+    background-color: white;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    padding: 5px;
+    margin-bottom: -2px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .coverTitle {
+    font-size: 0.8rem;
+  }

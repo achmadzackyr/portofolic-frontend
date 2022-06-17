@@ -8,6 +8,7 @@ import Contact from '../components/molecule/contact';
 import Portofolio from '../components/organism/portofolio';
 import Fab from '../components/molecule/fab';
 import PaletteSidebar from '../components/organism/palette-sidebar';
+import ColorPicker from '../components/molecule/color-picker';
 
 export async function getServerSideProps({ params }) {
   //   const req = await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/skills/${params.id}`);
@@ -39,6 +40,22 @@ function MyPortofolio(props) {
     { name: 'Light', value: '1' },
     { name: 'Dark', value: '2' }
   ];
+
+  const handleCloseNavbarBg = () => {
+    setNavbarBg({ ...navbarBg, displayColorPicker: false });
+  };
+
+  const handleChangeNavbarBg = (color) => {
+    setNavbarBg({ ...navbarBg, color: color.hex });
+  };
+
+  const handleCloseNavbarText = () => {
+    setNavbarText({ ...navbarText, displayColorPicker: false });
+  };
+
+  const handleChangeNavbarText = (color) => {
+    setNavbarText({ ...navbarText, color: color.hex });
+  };
   //#endregion
 
   //#region home
@@ -61,6 +78,38 @@ function MyPortofolio(props) {
     displayColorPicker: false,
     color: '#ffffff'
   });
+
+  const handleCloseHomeBg = () => {
+    setHomeBg({ ...homeBg, displayColorPicker: false });
+  };
+
+  const handleChangeHomeBg = (color) => {
+    setHomeBg({ ...homeBg, color: color.hex });
+  };
+
+  const handleCloseHomeName = () => {
+    setHomeName({ ...homeName, displayColorPicker: false });
+  };
+
+  const handleChangeHomeName = (color) => {
+    setHomeName({ ...homeName, color: color.hex });
+  };
+
+  const handleCloseHomeHeadline = () => {
+    setHomeHeadline({ ...homeHeadline, displayColorPicker: false });
+  };
+
+  const handleChangeHomeHeadline = (color) => {
+    setHomeHeadline({ ...homeHeadline, color: color.hex });
+  };
+
+  const handleCloseHomeAvatar = () => {
+    setHomeAvatar({ ...homeAvatar, displayColorPicker: false });
+  };
+
+  const handleChangeHomeAvatar = (color) => {
+    setHomeAvatar({ ...homeAvatar, color: color.hex });
+  };
   //#endregion
 
   //#region about
@@ -78,6 +127,30 @@ function MyPortofolio(props) {
     displayColorPicker: false,
     color: '#555555'
   });
+
+  const handleCloseAboutBg = () => {
+    setAboutBg({ ...aboutBg, displayColorPicker: false });
+  };
+
+  const handleChangeAboutBg = (color) => {
+    setAboutBg({ ...aboutBg, color: color.hex });
+  };
+
+  const handleCloseAboutTitle = () => {
+    setAboutTitle({ ...aboutTitle, displayColorPicker: false });
+  };
+
+  const handleChangeAboutTitle = (color) => {
+    setAboutTitle({ ...aboutTitle, color: color.hex });
+  };
+
+  const handleCloseAboutContent = () => {
+    setAboutContent({ ...aboutContent, displayColorPicker: false });
+  };
+
+  const handleChangeAboutContent = (color) => {
+    setAboutContent({ ...aboutContent, color: color.hex });
+  };
   //#endregion
 
   //#region portofolio
@@ -86,7 +159,7 @@ function MyPortofolio(props) {
     color: '#00CCBF'
   });
 
-  const [portofolioHeader, setPortofolioHeader] = useState({
+  const [portofolioTitle, setPortofolioTitle] = useState({
     displayColorPicker: false,
     color: '#333333'
   });
@@ -95,6 +168,71 @@ function MyPortofolio(props) {
     displayColorPicker: false,
     color: '#3F7C85'
   });
+
+  const handleClosePortofolioBg = () => {
+    setPortofolioBg({ ...portofolioBg, displayColorPicker: false });
+  };
+
+  const handleChangePortofolioBg = (color) => {
+    setPortofolioBg({ ...portofolioBg, color: color.hex });
+  };
+
+  const handleClosePortofolioTitle = () => {
+    setPortofolioTitle({ ...portofolioTitle, displayColorPicker: false });
+  };
+
+  const handleChangePortofolioTitle = (color) => {
+    setPortofolioTitle({ ...portofolioTitle, color: color.hex });
+  };
+
+  const handleClosePortofolioSkill = () => {
+    setPortofolioSkill({ ...portofolioSkill, displayColorPicker: false });
+  };
+
+  const handleChangePortofolioSkill = (color) => {
+    setPortofolioSkill({ ...portofolioSkill, color: color.hex });
+  };
+  //#endregion
+
+  //#region skill
+  const [skillBg, setSkillBg] = useState({
+    displayColorPicker: false,
+    color: '#FFFFFF'
+  });
+
+  const [skillTitle, setSkillTitle] = useState({
+    displayColorPicker: false,
+    color: '#333333'
+  });
+
+  const [skillBar, setSkillBar] = useState({
+    displayColorPicker: false,
+    color: '#3F7C85'
+  });
+
+  const handleCloseSkillBg = () => {
+    setSkillBg({ ...skillBg, displayColorPicker: false });
+  };
+
+  const handleChangeSkillBg = (color) => {
+    setSkillBg({ ...skillBg, color: color.hex });
+  };
+
+  const handleCloseSkillTitle = () => {
+    setSkillTitle({ ...skillTitle, displayColorPicker: false });
+  };
+
+  const handleChangeSkillTitle = (color) => {
+    setSkillTitle({ ...skillTitle, color: color.hex });
+  };
+
+  const handleCloseSkillBar = () => {
+    setSkillBar({ ...skillBar, displayColorPicker: false });
+  };
+
+  const handleChangeSkillBar = (color) => {
+    setSkillBar({ ...skillBar, color: color.hex });
+  };
   //#endregion
 
   //   const updateSkill = async (e) => {
@@ -120,6 +258,128 @@ function MyPortofolio(props) {
         <PortofolioNavbar bgColor={navbarBg.color} textColor={navbarText.color} logo={logoTheme} />
       </header>
       <main className={styles.body}>
+        <div>
+          {navbarBg.displayColorPicker && (
+            <ColorPicker
+              component={navbarBg}
+              handleClose={handleCloseNavbarBg}
+              handleChange={handleChangeNavbarBg}
+              title="Navbar Background"
+            />
+          )}
+          {navbarText.displayColorPicker && (
+            <ColorPicker
+              component={navbarText}
+              handleClose={handleCloseNavbarText}
+              handleChange={handleChangeNavbarText}
+              title="Navbar Menu"
+            />
+          )}
+          {homeBg.displayColorPicker && (
+            <ColorPicker
+              component={homeBg}
+              handleClose={handleCloseHomeBg}
+              handleChange={handleChangeHomeBg}
+              title="Home Background"
+            />
+          )}
+          {homeName.displayColorPicker && (
+            <ColorPicker
+              component={homeName}
+              handleClose={handleCloseHomeName}
+              handleChange={handleChangeHomeName}
+              title="Home Fullname"
+            />
+          )}
+          {homeHeadline.displayColorPicker && (
+            <ColorPicker
+              component={homeHeadline}
+              handleClose={handleCloseHomeHeadline}
+              handleChange={handleChangeHomeHeadline}
+              title="Home Headline"
+            />
+          )}
+          {homeAvatar.displayColorPicker && (
+            <ColorPicker
+              component={homeAvatar}
+              handleClose={handleCloseHomeAvatar}
+              handleChange={handleChangeHomeAvatar}
+              title="Home Avatar"
+            />
+          )}
+          {aboutBg.displayColorPicker && (
+            <ColorPicker
+              component={aboutBg}
+              handleClose={handleCloseAboutBg}
+              handleChange={handleChangeAboutBg}
+              title="About Background"
+            />
+          )}
+          {aboutTitle.displayColorPicker && (
+            <ColorPicker
+              component={aboutTitle}
+              handleClose={handleCloseAboutTitle}
+              handleChange={handleChangeAboutTitle}
+              title="About Title"
+            />
+          )}
+          {aboutContent.displayColorPicker && (
+            <ColorPicker
+              component={aboutContent}
+              handleClose={handleCloseAboutContent}
+              handleChange={handleChangeAboutContent}
+              title="About Content"
+            />
+          )}
+          {portofolioBg.displayColorPicker && (
+            <ColorPicker
+              component={portofolioBg}
+              handleClose={handleClosePortofolioBg}
+              handleChange={handleChangePortofolioBg}
+              title="Portofolio Background"
+            />
+          )}
+          {portofolioTitle.displayColorPicker && (
+            <ColorPicker
+              component={portofolioTitle}
+              handleClose={handleClosePortofolioTitle}
+              handleChange={handleChangePortofolioTitle}
+              title="Portofolio Title"
+            />
+          )}
+          {portofolioSkill.displayColorPicker && (
+            <ColorPicker
+              component={portofolioSkill}
+              handleClose={handleClosePortofolioSkill}
+              handleChange={handleChangePortofolioSkill}
+              title="Portofolio Skill"
+            />
+          )}
+          {skillBg.displayColorPicker && (
+            <ColorPicker
+              component={skillBg}
+              handleClose={handleCloseSkillBg}
+              handleChange={handleChangeSkillBg}
+              title="Skill Background"
+            />
+          )}
+          {skillTitle.displayColorPicker && (
+            <ColorPicker
+              component={skillTitle}
+              handleClose={handleCloseSkillTitle}
+              handleChange={handleChangeSkillTitle}
+              title="Skill Title"
+            />
+          )}
+          {skillBar.displayColorPicker && (
+            <ColorPicker
+              component={skillBar}
+              handleClose={handleCloseSkillBar}
+              handleChange={handleChangeSkillBar}
+              title="Skill Bar"
+            />
+          )}
+        </div>
         <Jumbotron
           homeBg={homeBg}
           homeName={homeName}
@@ -143,10 +403,11 @@ function MyPortofolio(props) {
         </About>
         <Portofolio
           portofolioBg={portofolioBg}
-          portofolioHeader={portofolioHeader}
+          portofolioTitle={portofolioTitle}
           portofolioSkill={portofolioSkill}
+          skillBg={skillBg}
         />
-        <Skill />
+        <Skill skillBg={skillBg} skillTitle={skillTitle} skillBar={skillBar} />
         <Contact />
         <PaletteSidebar
           navbarBg={navbarBg}
@@ -172,10 +433,16 @@ function MyPortofolio(props) {
           setAboutContent={setAboutContent}
           portofolioBg={portofolioBg}
           setPortofolioBg={setPortofolioBg}
-          portofolioHeader={portofolioHeader}
-          setPortofolioHeader={setPortofolioHeader}
+          portofolioTitle={portofolioTitle}
+          setPortofolioTitle={setPortofolioTitle}
           portofolioSkill={portofolioSkill}
           setPortofolioSkill={setPortofolioSkill}
+          skillBg={skillBg}
+          setSkillBg={setSkillBg}
+          skillTitle={skillTitle}
+          setSkillTitle={setSkillTitle}
+          skillBar={skillBar}
+          setSkillBar={setSkillBar}
         />
         <Fab />
       </main>
