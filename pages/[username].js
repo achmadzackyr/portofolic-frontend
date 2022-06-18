@@ -235,6 +235,88 @@ function MyPortofolio(props) {
   };
   //#endregion
 
+  //#region contact
+  const [contactBg, setContactBg] = useState({
+    displayColorPicker: false,
+    color: '#00CCBF'
+  });
+
+  const [contactTitle, setContactTitle] = useState({
+    displayColorPicker: false,
+    color: '#333333'
+  });
+
+  const [contactLabel, setContactLabel] = useState({
+    displayColorPicker: false,
+    color: '#333333'
+  });
+
+  const [contactButton, setContactButton] = useState({
+    displayColorPicker: false,
+    color: '#3F7C85'
+  });
+
+  const handleCloseContactBg = () => {
+    setContactBg({ ...contactBg, displayColorPicker: false });
+  };
+
+  const handleChangeContactBg = (color) => {
+    setContactBg({ ...contactBg, color: color.hex });
+  };
+
+  const handleCloseContactTitle = () => {
+    setContactTitle({ ...contactTitle, displayColorPicker: false });
+  };
+
+  const handleChangeContactTitle = (color) => {
+    setContactTitle({ ...contactTitle, color: color.hex });
+  };
+
+  const handleCloseContactLabel = () => {
+    setContactLabel({ ...contactLabel, displayColorPicker: false });
+  };
+
+  const handleChangeContactLabel = (color) => {
+    setContactLabel({ ...contactLabel, color: color.hex });
+  };
+
+  const handleCloseContactButton = () => {
+    setContactButton({ ...contactButton, displayColorPicker: false });
+  };
+
+  const handleChangeContactButton = (color) => {
+    setContactButton({ ...contactButton, color: color.hex });
+  };
+  //#endregion
+
+  //#region footer
+  const [footerBg, setFooterBg] = useState({
+    displayColorPicker: false,
+    color: '#3F7C85'
+  });
+
+  const [footerText, setFooterText] = useState({
+    displayColorPicker: false,
+    color: '#ffffff'
+  });
+
+  const handleCloseFooterBg = () => {
+    setFooterBg({ ...footerBg, displayColorPicker: false });
+  };
+
+  const handleChangeFooterBg = (color) => {
+    setFooterBg({ ...footerBg, color: color.hex });
+  };
+
+  const handleCloseFooterText = () => {
+    setFooterText({ ...footerText, displayColorPicker: false });
+  };
+
+  const handleChangeFooterText = (color) => {
+    setFooterText({ ...footerText, color: color.hex });
+  };
+  //#endregion
+
   //   const updateSkill = async (e) => {
   //     e.preventDefault();
 
@@ -379,6 +461,54 @@ function MyPortofolio(props) {
               title="Skill Bar"
             />
           )}
+          {contactBg.displayColorPicker && (
+            <ColorPicker
+              component={contactBg}
+              handleClose={handleCloseContactBg}
+              handleChange={handleChangeContactBg}
+              title="Contact Background"
+            />
+          )}
+          {contactTitle.displayColorPicker && (
+            <ColorPicker
+              component={contactTitle}
+              handleClose={handleCloseContactTitle}
+              handleChange={handleChangeContactTitle}
+              title="Contact Title"
+            />
+          )}
+          {contactLabel.displayColorPicker && (
+            <ColorPicker
+              component={contactLabel}
+              handleClose={handleCloseContactLabel}
+              handleChange={handleChangeContactLabel}
+              title="Contact Label"
+            />
+          )}
+          {contactButton.displayColorPicker && (
+            <ColorPicker
+              component={contactButton}
+              handleClose={handleCloseContactButton}
+              handleChange={handleChangeContactButton}
+              title="Contact Button"
+            />
+          )}
+          {footerBg.displayColorPicker && (
+            <ColorPicker
+              component={footerBg}
+              handleClose={handleCloseFooterBg}
+              handleChange={handleChangeFooterBg}
+              title="Footer Background"
+            />
+          )}
+          {footerText.displayColorPicker && (
+            <ColorPicker
+              component={footerText}
+              handleClose={handleCloseFooterText}
+              handleChange={handleChangeFooterText}
+              title="Contact Text"
+            />
+          )}
         </div>
         <Jumbotron
           homeBg={homeBg}
@@ -407,8 +537,19 @@ function MyPortofolio(props) {
           portofolioSkill={portofolioSkill}
           skillBg={skillBg}
         />
-        <Skill skillBg={skillBg} skillTitle={skillTitle} skillBar={skillBar} />
-        <Contact />
+        <Skill
+          skillBg={skillBg}
+          skillTitle={skillTitle}
+          skillBar={skillBar}
+          contactBg={contactBg}
+        />
+        <Contact
+          contactBg={contactBg}
+          contactTitle={contactTitle}
+          contactLabel={contactLabel}
+          contactButton={contactButton}
+          footerBg={footerBg}
+        />
         <PaletteSidebar
           navbarBg={navbarBg}
           setNavbarBg={setNavbarBg}
@@ -443,10 +584,25 @@ function MyPortofolio(props) {
           setSkillTitle={setSkillTitle}
           skillBar={skillBar}
           setSkillBar={setSkillBar}
+          contactBg={contactBg}
+          setContactBg={setContactBg}
+          contactTitle={contactTitle}
+          setContactTitle={setContactTitle}
+          contactLabel={contactLabel}
+          setContactLabel={setContactLabel}
+          contactButton={contactButton}
+          setContactButton={setContactButton}
+          footerBg={footerBg}
+          setFooterBg={setFooterBg}
+          footerText={footerText}
+          setFooterText={setFooterText}
         />
         <Fab />
       </main>
-      <footer className="pb-5 text-center" style={{ backgroundColor: '#5f5f5f', color: 'white' }}>
+      <footer
+        className="pb-5 text-center"
+        style={{ backgroundColor: footerBg.color, color: footerText.color }}
+      >
         Portofolic - Made By IT Worker For IT Worker &middot; &copy; 2022
       </footer>
     </>

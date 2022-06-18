@@ -37,7 +37,19 @@ export default function PaletteSidebar({
   skillTitle,
   setSkillTitle,
   skillBar,
-  setSkillBar
+  setSkillBar,
+  contactBg,
+  setContactBg,
+  contactTitle,
+  setContactTitle,
+  contactLabel,
+  setContactLabel,
+  contactButton,
+  setContactButton,
+  footerBg,
+  setFooterBg,
+  footerText,
+  setFooterText
 }) {
   //#region navbar
   const handleClickNavbarBg = () => {
@@ -47,7 +59,7 @@ export default function PaletteSidebar({
   const handleClickNavbarText = () => {
     setNavbarText({ ...navbarText, displayColorPicker: !navbarText.displayColorPicker });
   };
-  //#endregion navbar
+  //#endregion
 
   //#region home
   const handleClickHomeBg = () => {
@@ -112,6 +124,34 @@ export default function PaletteSidebar({
 
   const handleClickSkillBar = () => {
     setSkillBar({ ...skillBar, displayColorPicker: !skillBar.displayColorPicker });
+  };
+  //#endregion
+
+  //#region contact
+  const handleClickContactBg = () => {
+    setContactBg({ ...contactBg, displayColorPicker: !contactBg.displayColorPicker });
+  };
+
+  const handleClickContactTitle = () => {
+    setContactTitle({ ...contactTitle, displayColorPicker: !contactTitle.displayColorPicker });
+  };
+
+  const handleClickContactLabel = () => {
+    setContactLabel({ ...contactLabel, displayColorPicker: !contactLabel.displayColorPicker });
+  };
+
+  const handleClickContactButton = () => {
+    setContactButton({ ...contactButton, displayColorPicker: !contactButton.displayColorPicker });
+  };
+  //#endregion
+
+  //#region footer
+  const handleClickFooterBg = () => {
+    setFooterBg({ ...footerBg, displayColorPicker: !footerBg.displayColorPicker });
+  };
+
+  const handleClickFooterText = () => {
+    setFooterText({ ...footerText, displayColorPicker: !footerText.displayColorPicker });
   };
   //#endregion
 
@@ -347,9 +387,59 @@ export default function PaletteSidebar({
                 <li className="mb-1">
                   <div className="d-flex align-items-center">
                     <ul style={{ lineHeight: '2em' }}>
-                      <li>Background Color</li>
-                      <li>Text Color</li>
-                      <li>Background Color</li>
+                      <li>
+                        Background
+                        <ColorSelector component={contactBg} handleClick={handleClickContactBg} />
+                      </li>
+                      <li>
+                        Title
+                        <ColorSelector
+                          component={contactTitle}
+                          handleClick={handleClickContactTitle}
+                        />
+                      </li>
+                      <li>
+                        Label
+                        <ColorSelector
+                          component={contactLabel}
+                          handleClick={handleClickContactLabel}
+                        />
+                      </li>
+                      <li>
+                        Button
+                        <ColorSelector
+                          component={contactButton}
+                          handleClick={handleClickContactButton}
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li className="mb-1">
+            <button
+              className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+              data-bs-toggle="collapse"
+              data-bs-target="#footer-collapse"
+              aria-expanded="true"
+            >
+              Footer
+            </button>
+            <div className="collapse show toggled-content" id="footer-collapse">
+              <ul className="list-unstyled ps-0">
+                <li className="mb-1">
+                  <div className="d-flex align-items-center">
+                    <ul style={{ lineHeight: '2em' }}>
+                      <li>
+                        Background
+                        <ColorSelector component={footerBg} handleClick={handleClickFooterBg} />
+                      </li>
+                      <li>
+                        Text
+                        <ColorSelector component={footerText} handleClick={handleClickFooterText} />
+                      </li>
                     </ul>
                   </div>
                 </li>
