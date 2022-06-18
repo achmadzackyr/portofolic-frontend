@@ -423,11 +423,11 @@ export default function PaletteSidebar({
               className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
               data-bs-toggle="collapse"
               data-bs-target="#footer-collapse"
-              aria-expanded="true"
+              aria-expanded="false"
             >
               Footer
             </button>
-            <div className="collapse show toggled-content" id="footer-collapse">
+            <div className="collapse toggled-content" id="footer-collapse">
               <ul className="list-unstyled ps-0">
                 <li className="mb-1">
                   <div className="d-flex align-items-center">

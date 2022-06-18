@@ -91,3 +91,26 @@ a {
 .scrollarea {
   overflow-y: auto;
 }
+
+.btn-brand {
+  border-radius: 100px !important;
+  padding: 5px 20px !important;
+  background-color: #292C6D !important;
+  border-color: #292C6D !important;
+}
+
+.btn-brand:hover {
+  background-color: #4B4E8F !important;
+}
+
+.btn-brand-outline {
+  border-radius: 100px !important;
+  padding: 5px 20px !important;
+  background-color: transparent !important;
+  color: #292C6D !important;
+  border-color: #292C6D !important;
+}
+
+.btn-brand-outline:hover {
+  background-color: #DDD !important;
+}

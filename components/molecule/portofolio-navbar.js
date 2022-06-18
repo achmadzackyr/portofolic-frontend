@@ -4,7 +4,7 @@ function PortofolioNavbar({ bgColor, textColor, logo }) {
   return (
     <Navbar expand="lg" style={{ backgroundColor: bgColor }} fixed="top">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             src={logo == '1' ? './logo-portofolic-light.png' : './logo-portofolic-dark.png'}
             height={40}
