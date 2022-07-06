@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 export default function Hero() {
   return (
@@ -24,20 +25,13 @@ export default function Hero() {
               Portofolic is designed according to the needs of the IT field.
             </p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button
-                type="button"
-                className="btn text-white btn-brand btn-lg px-4 me-md-2"
+              <Button
+                href="/auth/signup"
                 title="Create my portofolio site"
+                className="text-white btn-brand btn-lg px-4 me-md-2"
               >
                 Get Started
-              </button>
-              <button
-                type="button"
-                className="btn btn-brand-outline btn-lg px-4"
-                title="Try costumizing a dummy portofolio site"
-              >
-                Demo
-              </button>
+              </Button>
             </div>
           </div>
         </div>

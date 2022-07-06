@@ -1,32 +1,20 @@
 import { useState } from 'react';
-import styles from '../styles/username.module.css';
-import PortofolioNavbar from '../components/molecule/portofolio-navbar';
-import Jumbotron from '../components/organism/jumbotron';
-import About from '../components/organism/about';
-import Skill from '../components/organism/skill';
-import Contact from '../components/organism/contact';
-import Portofolio from '../components/organism/portofolio';
-import Fab from '../components/molecule/fab';
-import PaletteSidebar from '../components/organism/palette-sidebar';
-import ColorPicker from '../components/molecule/color-picker';
+import styles from '../../styles/username.module.css';
+import PortofolioNavbar from '../../components/molecule/portofolio-navbar';
+import Jumbotron from '../../components/organism/jumbotron';
+import About from '../../components/organism/about';
+import Skill from '../../components/organism/skill';
+import Contact from '../../components/organism/contact';
+import Portofolio from '../../components/organism/portofolio';
+import Fab from '../../components/molecule/fab';
+import PaletteSidebar from '../../components/organism/palette-sidebar';
+import ColorPicker from '../../components/molecule/color-picker';
 
-export async function getServerSideProps({ params }) {
-  //   const req = await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/skills/${params.id}`);
-  //   const res = await req.data.data;
-  return {
-    props: {
-      username: params.username
-    }
-  };
-}
-
-function MyPortofolio(props) {
-  const { username } = props;
-
+function Demo(props) {
   //#region navbar
   const [navbarBg, setNavbarBg] = useState({
     displayColorPicker: false,
-    color: '#3F7C85'
+    color: '#0C843C'
   });
 
   const [navbarText, setNavbarText] = useState({
@@ -61,17 +49,17 @@ function MyPortofolio(props) {
   //#region home
   const [homeBg, setHomeBg] = useState({
     displayColorPicker: false,
-    color: '#00CCBF'
+    color: '#54B34B'
   });
 
   const [homeName, setHomeName] = useState({
     displayColorPicker: false,
-    color: '#333333'
+    color: '#ffffff'
   });
 
   const [homeHeadline, setHomeHeadline] = useState({
     displayColorPicker: false,
-    color: '#555555'
+    color: '#ffffff'
   });
 
   const [homeAvatar, setHomeAvatar] = useState({
@@ -156,17 +144,17 @@ function MyPortofolio(props) {
   //#region portofolio
   const [portofolioBg, setPortofolioBg] = useState({
     displayColorPicker: false,
-    color: '#00CCBF'
+    color: '#54B34B'
   });
 
   const [portofolioTitle, setPortofolioTitle] = useState({
     displayColorPicker: false,
-    color: '#333333'
+    color: '#fff'
   });
 
   const [portofolioSkill, setPortofolioSkill] = useState({
     displayColorPicker: false,
-    color: '#3F7C85'
+    color: '#0C843C'
   });
 
   const handleClosePortofolioBg = () => {
@@ -207,7 +195,7 @@ function MyPortofolio(props) {
 
   const [skillBar, setSkillBar] = useState({
     displayColorPicker: false,
-    color: '#3F7C85'
+    color: '#0C843C'
   });
 
   const handleCloseSkillBg = () => {
@@ -238,22 +226,22 @@ function MyPortofolio(props) {
   //#region contact
   const [contactBg, setContactBg] = useState({
     displayColorPicker: false,
-    color: '#00CCBF'
+    color: '#54B34B'
   });
 
   const [contactTitle, setContactTitle] = useState({
     displayColorPicker: false,
-    color: '#333333'
+    color: '#fff'
   });
 
   const [contactLabel, setContactLabel] = useState({
     displayColorPicker: false,
-    color: '#333333'
+    color: '#fff'
   });
 
   const [contactButton, setContactButton] = useState({
     displayColorPicker: false,
-    color: '#3F7C85'
+    color: '#CAD444'
   });
 
   const handleCloseContactBg = () => {
@@ -292,7 +280,7 @@ function MyPortofolio(props) {
   //#region footer
   const [footerBg, setFooterBg] = useState({
     displayColorPicker: false,
-    color: '#3F7C85'
+    color: '#0C843C'
   });
 
   const [footerText, setFooterText] = useState({
@@ -609,4 +597,4 @@ function MyPortofolio(props) {
   );
 }
 
-export default MyPortofolio;
+export default Demo;

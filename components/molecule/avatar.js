@@ -1,6 +1,6 @@
 import { Image } from 'react-bootstrap';
 
-export default function Avatar({ homeAvatar }) {
+export default function Avatar({ homeAvatar, handleShow }) {
   return (
     <div className="avatar">
       <Image
@@ -9,7 +9,7 @@ export default function Avatar({ homeAvatar }) {
         src="/achmadzackyr.jpeg"
         style={{ width: '200px', backgroundColor: homeAvatar.color, borderColor: homeAvatar.color }}
       />
-      <i className="bi bi-pencil rounded-circle edit-icon"></i>
+      <i className="bi bi-pencil rounded-circle edit-icon" onClick={handleShow}></i>
     </div>
   );
 }

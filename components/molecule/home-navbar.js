@@ -14,8 +14,10 @@ function HomeNavbar() {
             <Nav.Link href="#">Blog</Nav.Link>
             <Nav.Link href="#">About</Nav.Link>
           </Nav>
-          <Button className="me-2 btn-brand-outline">Log In</Button>
-          <Button className="btn-brand">Sign Up</Button>
+          <Nav.Link href="auth/signin">Sign In</Nav.Link>
+          <Button href="demo" className="me-2 btn-brand-outline">
+            Demo
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
