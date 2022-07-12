@@ -513,7 +513,7 @@ function Demo(props) {
           aboutContent={aboutContent}
           portofolioBg={portofolioBg}
         >
-          Hallo I'm Zacky, I love to code. <br />
+          Hallo I am Zacky, I love to code. <br />
           I have more than 10 years of experience in web programming and 3 years in mobile
           programming. <br />
           Now I work in an airline in Indonesia as a Full Stack Developer. <br /> I can build

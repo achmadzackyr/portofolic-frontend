@@ -112,7 +112,6 @@ a {
 }
 
 .btn-brand {
-  border-radius: 100px !important;
   padding: 5px 20px !important;
   background-color: #292C6D !important;
   border-color: #292C6D !important;
@@ -132,10 +131,6 @@ a {
 
 .btn-brand-outline:hover {
   background-color: #DDD !important;
-}
-
-.form-control {
-  border-radius: 100px !important;
 }
 
 hr.divider{

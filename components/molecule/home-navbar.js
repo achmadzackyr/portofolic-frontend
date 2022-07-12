@@ -1,11 +1,11 @@
-import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav, Button, Image } from 'react-bootstrap';
 
 function HomeNavbar() {
   return (
     <Navbar expand="lg" fixed="top" className="bg-white border-bottom">
       <Container>
         <Navbar.Brand href="/">
-          <img src="./logo-portofolic-dark.png" height={40} alt="Portofolic" />
+          <Image src="./logo-portofolic-dark.png" height={40} alt="Portofolic" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

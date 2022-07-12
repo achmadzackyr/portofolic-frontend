@@ -1,11 +1,11 @@
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown, Image } from 'react-bootstrap';
 
 function PortofolioNavbar({ bgColor, textColor, logo }) {
   return (
     <Navbar expand="lg" style={{ backgroundColor: bgColor }} fixed="top">
       <Container>
         <Navbar.Brand href="/">
-          <img
+          <Image
             src={logo == '1' ? './logo-portofolic-light.png' : './logo-portofolic-dark.png'}
             height={40}
             alt="Portofolic"

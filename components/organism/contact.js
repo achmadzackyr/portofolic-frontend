@@ -24,27 +24,15 @@ function Contact({ contactBg, contactTitle, contactLabel, contactButton, footerB
               <Form>
                 <Form.Group className="mb-3" controlId="fullname-contact">
                   <Form.Label style={{ color: contactLabel.color }}>Full Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="input your name"
-                    style={{ borderRadius: '0.25rem !important' }}
-                  />
+                  <Form.Control type="text" placeholder="input your name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="email-contact">
                   <Form.Label style={{ color: contactLabel.color }}>Email Address</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="name@example.com"
-                    style={{ borderRadius: '0.25rem !important' }}
-                  />
+                  <Form.Control type="email" placeholder="name@example.com" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="message-contact">
                   <Form.Label style={{ color: contactLabel.color }}>Message</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={3}
-                    style={{ borderRadius: '0.25rem !important' }}
-                  />
+                  <Form.Control as="textarea" rows={3} />
                 </Form.Group>
                 <Button
                   type="submit"

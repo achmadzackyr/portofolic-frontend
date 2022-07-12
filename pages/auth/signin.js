@@ -5,9 +5,9 @@ import Link from 'next/link';
 export default function SignIn() {
   return (
     <div style={{ maxWidth: '400px' }} className="m-auto pt-3">
-      <a href="/">
-        <Image src="../logo-portofolic-dark.png" />
-      </a>
+      {/* <Link href="/" title="Go to home"> */}
+      <Image alt="Portofolic Logo" src="../logo-portofolic-dark.png" />
+      {/* </Link> */}
       <h2>Sign In</h2>
       <Form>
         <Form.Group className="mb-3" controlId="emailusername">

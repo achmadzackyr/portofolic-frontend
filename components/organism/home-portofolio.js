@@ -1,7 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Image, Row, Col, Card } from 'react-bootstrap';
 
 function HomePortofolio() {
   return (
@@ -9,9 +7,9 @@ function HomePortofolio() {
       <h4 className="text-center mb-4">Featured Portofolio</h4>
       <Row xs={1} md={3} lg={4} className="g-4">
         {Array.from({ length: 12 }).map((_, idx) => (
-          <Col>
+          <Col key={idx}>
             <div className="card" style={{ border: 'none' }}>
-              <img
+              <Image
                 src="project-thumbnail-default.jpg"
                 style={{ borderRadius: 'calc(.5rem - 1px)' }}
                 alt="portofolio thumbnail"
