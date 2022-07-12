@@ -1,7 +1,7 @@
 import { Container, Row, Col, Modal, Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 
-function About({ children, aboutBg, aboutTitle, aboutContent, portofolioBg }) {
+function About({ children, aboutBg, aboutTitle, aboutContent, portofolioBg, aboutMe, setAboutMe }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -20,7 +20,7 @@ function About({ children, aboutBg, aboutTitle, aboutContent, portofolioBg }) {
           </Row>
           <Row className="text-center fs-5">
             <Col>
-              <p style={{ color: aboutContent.color }}>{children}</p>
+              <p style={{ color: aboutContent.color }}>{aboutMe}</p>
             </Col>
           </Row>
         </Container>
@@ -38,13 +38,16 @@ function About({ children, aboutBg, aboutTitle, aboutContent, portofolioBg }) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="name@example.com" autoFocus />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} />
+            <Form.Group className="mb-3" controlId="formAboutMe">
+              <Form.Label>About Me</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                onChange={(e) => {
+                  setAboutMe(e.target.value);
+                }}
+                value={aboutMe}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>

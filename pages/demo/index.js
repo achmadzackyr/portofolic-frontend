@@ -9,6 +9,7 @@ import Portofolio from '../../components/organism/portofolio';
 import Fab from '../../components/molecule/fab';
 import PaletteSidebar from '../../components/organism/palette-sidebar';
 import ColorPicker from '../../components/molecule/color-picker';
+import Head from 'next/head';
 
 function Demo(props) {
   //#region navbar
@@ -47,6 +48,9 @@ function Demo(props) {
   //#endregion
 
   //#region home
+  const [fullName, setFullName] = useState('Achmad Zacky Rachmatullah');
+  const [headline, setHeadline] = useState('10 Years+ Experienced Full Stack Developer');
+
   const [homeBg, setHomeBg] = useState({
     displayColorPicker: false,
     color: '#54B34B'
@@ -101,6 +105,10 @@ function Demo(props) {
   //#endregion
 
   //#region about
+  const [aboutMe, setAboutMe] = useState(
+    'Hallo I am Zacky, I love to code. I have more than 10 years of experience in web programming and 3 years in mobile programming. Now I work in an airline in Indonesia as a Full Stack Developer. I can build website, desktop application and mobile application. I am open to freelance offers.'
+  );
+
   const [aboutBg, setAboutBg] = useState({
     displayColorPicker: false,
     color: '#FFFFFF'
@@ -324,10 +332,20 @@ function Demo(props) {
 
   return (
     <>
-      <header>
-        <PortofolioNavbar bgColor={navbarBg.color} textColor={navbarText.color} logo={logoTheme} />
-      </header>
+      <Head>
+        <title>Portofolic Demo Page - Customize Your Portofolio</title>
+        <meta
+          property="og:title"
+          content="Portofolic Demo Page - Customize Your Portofolio"
+          key="title"
+        />
+        <meta
+          name="description"
+          content="In this demo page you can try all feature to customize your portofolio. Including theme, color, content and of course your portofolio."
+        />
+      </Head>
       <main className={styles.body}>
+        <PortofolioNavbar bgColor={navbarBg.color} textColor={navbarText.color} logo={logoTheme} />
         <div>
           {navbarBg.displayColorPicker && (
             <ColorPicker
@@ -504,21 +522,20 @@ function Demo(props) {
           homeHeadline={homeHeadline}
           homeAvatar={homeAvatar}
           aboutBg={aboutBg}
-          fullName={'Achmad Zacky Rachmatullah'}
-          headline={'10 Years+ Experienced Full Stack Developer'}
+          fullName={fullName}
+          headline={headline}
+          setFullName={setFullName}
+          setHeadline={setHeadline}
+          avatarSrc={'/achmadzackyr.jpeg'}
         />
         <About
           aboutBg={aboutBg}
           aboutTitle={aboutTitle}
           aboutContent={aboutContent}
           portofolioBg={portofolioBg}
-        >
-          Hallo I am Zacky, I love to code. <br />
-          I have more than 10 years of experience in web programming and 3 years in mobile
-          programming. <br />
-          Now I work in an airline in Indonesia as a Full Stack Developer. <br /> I can build
-          website, desktop application and mobile application. <br /> I am open to freelance offers.
-        </About>
+          aboutMe={aboutMe}
+          setAboutMe={setAboutMe}
+        />
         <Portofolio
           portofolioBg={portofolioBg}
           portofolioTitle={portofolioTitle}

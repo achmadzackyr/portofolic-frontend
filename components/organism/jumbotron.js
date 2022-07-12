@@ -1,16 +1,52 @@
 import Avatar from '../molecule/avatar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 
-function Jumbotron({ homeBg, homeName, homeHeadline, fullName, headline, homeAvatar, aboutBg }) {
+function Jumbotron({
+  homeBg,
+  homeName,
+  homeHeadline,
+  fullName,
+  headline,
+  homeAvatar,
+  aboutBg,
+  setFullName,
+  setHeadline,
+  avatarSrc
+}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [selectedFile, setSelectedFile] = useState();
+  const [preview, setPreview] = useState();
+
+  const onSelectFile = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+      setSelectedFile(undefined);
+      return;
+    }
+    setSelectedFile(e.target.files[0]);
+  };
+
+  useEffect(() => {
+    if (!selectedFile) {
+      setPreview(avatarSrc);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
+
   return (
     <>
       <div className="pt-5 text-center" style={{ backgroundColor: homeBg.color }} id="home">
-        <Avatar homeAvatar={homeAvatar} handleShow={handleShow} />
+        <Avatar homeAvatar={homeAvatar} handleShow={handleShow} imgSrc={preview} />
         <h1 className="display-6 fw-semibold" style={{ color: homeName.color }}>
           {fullName}
         </h1>
@@ -31,13 +67,38 @@ function Jumbotron({ homeBg, homeName, homeHeadline, fullName, headline, homeAva
         </Modal.Header>
         <Modal.Body>
           <Form>
+            <Form.Group controlId="formProfilePicture" className="mb-3">
+              <Form.Label>Profile Picture</Form.Label>
+              <Form.Control
+                type="file"
+                // onChange={(e) => {
+                //   console.log(e.target.files[0]);
+                // }}
+                onChange={onSelectFile}
+              />
+            </Form.Group>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Your name" autoFocus />
+              <Form.Control
+                type="text"
+                placeholder="Your name"
+                autoFocus
+                value={fullName}
+                onChange={(e) => {
+                  setFullName(e.target.value);
+                }}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="headline">
               <Form.Label>Headline</Form.Label>
-              <Form.Control type="text" placeholder="Describe you in one sentence" />
+              <Form.Control
+                type="text"
+                placeholder="Describe you in one sentence"
+                value={headline}
+                onChange={(e) => {
+                  setHeadline(e.target.value);
+                }}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
