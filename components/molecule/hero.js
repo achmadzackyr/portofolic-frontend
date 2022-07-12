@@ -32,6 +32,13 @@ export default function Hero() {
               >
                 Get Started
               </Button>
+              <Button
+                href="demo"
+                title="Demo portofolio"
+                className="btn-brand-outline btn-lg px-4 me-md-2"
+              >
+                Demo
+              </Button>
             </div>
           </div>
         </div>

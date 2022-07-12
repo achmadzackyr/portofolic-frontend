@@ -4,6 +4,7 @@ export default function Avatar({ homeAvatar, handleShow }) {
   return (
     <div className="avatar">
       <Image
+        alt="My Profile Picture"
         roundedCircle
         className="img-thumbnail mt-5"
         src="/achmadzackyr.jpeg"
