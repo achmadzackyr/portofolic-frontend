@@ -9,29 +9,54 @@ import Portofolio from '../components/organism/portofolio';
 import Fab from '../components/molecule/fab';
 import PaletteSidebar from '../components/organism/palette-sidebar';
 import ColorPicker from '../components/molecule/color-picker';
+import axios from 'axios';
+import * as qs from 'qs';
 
 export async function getServerSideProps({ params }) {
-  //   const req = await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/skills/${params.id}`);
-  //   const res = await req.data.data;
+  const reqParam = {
+    username: params.username
+  };
+  const req = await axios.post(
+    `${process.env.NEXT_PUBLIC_API_BACKEND}/api/pages/get-portofolio-page`,
+    reqParam
+  );
+  const res = await req.data.data;
   return {
     props: {
-      username: params.username
+      username: params.username,
+      data: res
     }
   };
 }
 
 function MyPortofolio(props) {
-  const { username } = props;
+  const { username, data } = props;
+  const [firstName, setFirstName] = useState(data.user.first_name);
+  const [lastName, setLastName] = useState(data.user.last_name);
+  const [headline, setHeadline] = useState(data.user.headline ?? 'My Headline');
+  const [avatarSrc, setAvatarSrc] = useState(
+    `${process.env.NEXT_PUBLIC_AWS_S3}/avatar/${data.user.profile_picture_url}` ??
+      '/avatar-default.jpg'
+  );
+  const [email, setEmail] = useState(data.user.email);
+  const [dob, setDob] = useState(data.user.date_of_birth);
+  const [gender, setGender] = useState(data.user.gender);
+  const [phone, setPhone] = useState(data.user.phone);
+  const [isFullTime, setIsFullTime] = useState(data.user.is_fulltime_hire_ready);
+  const [IsFreelancer, setFreelancer] = useState(data.user.is_freelance_hire_ready);
+  const [pp, setPP] = useState(data.user.profile_picture_url);
+  const [cover, setCover] = useState(data.user.cover_picture_url);
+  const [aboutMe, setAboutMe] = useState(data.user.about_me);
 
   //#region navbar
   const [navbarBg, setNavbarBg] = useState({
     displayColorPicker: false,
-    color: '#3F7C85'
+    color: data.user.navbar_bg_color ?? '#3F7C85'
   });
 
   const [navbarText, setNavbarText] = useState({
     displayColorPicker: false,
-    color: '#ffffff'
+    color: data.user.navbar_text_color ?? '#ffffff'
   });
 
   const [logoTheme, setLogoTheme] = useState('1');
@@ -292,12 +317,12 @@ function MyPortofolio(props) {
   //#region footer
   const [footerBg, setFooterBg] = useState({
     displayColorPicker: false,
-    color: '#3F7C85'
+    color: data.user.footer_bg_color ?? '#3F7C85'
   });
 
   const [footerText, setFooterText] = useState({
     displayColorPicker: false,
-    color: '#ffffff'
+    color: data.user.footer_text_color ?? '#ffffff'
   });
 
   const handleCloseFooterBg = () => {
@@ -516,21 +541,22 @@ function MyPortofolio(props) {
           homeHeadline={homeHeadline}
           homeAvatar={homeAvatar}
           aboutBg={aboutBg}
-          fullName={'Achmad Zacky Rachmatullah'}
-          headline={'10 Years+ Experienced Full Stack Developer'}
+          headline={headline}
+          firstName={firstName}
+          lastName={lastName}
+          setFirstName={setFirstName}
+          setLastName={setLastName}
+          setHeadline={setHeadline}
+          avatarSrc={avatarSrc}
         />
         <About
           aboutBg={aboutBg}
           aboutTitle={aboutTitle}
           aboutContent={aboutContent}
           portofolioBg={portofolioBg}
-        >
-          Hallo I am Zacky, I love to code. <br />
-          I have more than 10 years of experience in web programming and 3 years in mobile
-          programming. <br />
-          Now I work in an airline in Indonesia as a Full Stack Developer. <br /> I can build
-          website, desktop application and mobile application. <br /> I am open to freelance offers.
-        </About>
+          aboutMe={aboutMe}
+          setAboutMe={setAboutMe}
+        />
         <Portofolio
           portofolioBg={portofolioBg}
           portofolioTitle={portofolioTitle}

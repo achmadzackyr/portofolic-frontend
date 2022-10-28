@@ -4,7 +4,6 @@ import styles from '../styles/Home.module.css';
 import Navbar from '../components/molecule/home-navbar';
 import Hero from '../components/molecule/hero';
 import HomePortofolio from '../components/organism/home-portofolio';
-import { SocialMediaIconsReact } from 'social-media-icons-react';
 
 export default function Home() {
   return (
@@ -26,12 +25,12 @@ export default function Home() {
       <main>
         <Navbar />
         <Hero />
-        <HomePortofolio />
+        {/* <HomePortofolio /> */}
       </main>
 
       <footer className={styles.footer}>
         <div>© 2022 Portofolic. All rights reserved.</div>
-        <div className="d-flex">
+        {/* <div className="d-flex">
           <div className="me-2">
             <SocialMediaIconsReact
               borderColor="rgba(0,0,0,0.10)"
@@ -56,7 +55,7 @@ export default function Home() {
               size="30"
             />
           </div>
-        </div>
+        </div> */}
       </footer>
     </div>
   );

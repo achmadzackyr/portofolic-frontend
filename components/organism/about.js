@@ -1,11 +1,56 @@
 import { Container, Row, Col, Modal, Button, Form } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import * as qs from 'qs';
+import Cookies from 'js-cookie';
 
 function About({ children, aboutBg, aboutTitle, aboutContent, portofolioBg, aboutMe, setAboutMe }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [token, setToken] = useState('');
+  const [showEdit, setShowEdit] = useState(false);
+
+  useEffect(() => {
+    if (Cookies.get('token')) {
+      setShowEdit(true);
+      setToken(Cookies.get('token'));
+    }
+  }, []);
+
+  const handleSave = async () => {
+    setIsSubmitting(true);
+
+    var data = qs.stringify({
+      about_me: aboutMe,
+      method: '_PUT'
+    });
+    var config = {
+      method: 'post',
+      url: `${process.env.NEXT_PUBLIC_API_BACKEND}/api/portofolios/update-about`,
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+        setShow(false);
+      });
+  };
+
   return (
     <>
       <section id="about" className="pt-5" style={{ backgroundColor: aboutBg.color }}>
@@ -55,7 +100,7 @@ function About({ children, aboutBg, aboutTitle, aboutContent, portofolioBg, abou
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button className="btn-brand" onClick={handleSave} disabled={isSubmitting}>
             Save Changes
           </Button>
         </Modal.Footer>

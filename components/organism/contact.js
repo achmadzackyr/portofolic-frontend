@@ -1,5 +1,4 @@
 import { Form, Container, Row, Col, Button, Modal } from 'react-bootstrap';
-import { SocialMediaIconsReact } from 'social-media-icons-react';
 import { useState } from 'react';
 
 function Contact({ contactBg, contactTitle, contactLabel, contactButton, footerBg }) {
@@ -43,7 +42,7 @@ function Contact({ contactBg, contactTitle, contactLabel, contactButton, footerB
               </Form>
             </Col>
           </Row>
-          <Row className="mt-5">
+          {/* <Row className="mt-5">
             <Col className="text-center d-flex justify-content-center">
               <div className="mx-1">
                 <SocialMediaIconsReact
@@ -95,7 +94,7 @@ function Contact({ contactBg, contactTitle, contactLabel, contactButton, footerB
                 />
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
